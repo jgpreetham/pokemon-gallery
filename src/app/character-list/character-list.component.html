@@ -1,0 +1,28 @@
+<div *ngIf="alerts.length > 0" class="alert alert-danger alert-sm text-center ">
+  <div *ngFor="let alert of alerts">
+      <strong>Error!</strong> {{alert.message}}
+  </div>
+</div>
+<div class="container">
+  <div class="row col-xs-12">
+      <div class="input-group">
+          <input class="form-control" [(ngModel)]="searchText" placeholder="Search Pokemon" (keyup)="search()"> 
+        </div>
+  </div>
+</div>
+
+<mat-grid-list #tile rowHeight="100px">
+  <mat-grid-tile
+      *ngFor="let character of viewCharacters">
+      <img src="/assets/static/images/{{character.id}}.png">
+      #{{character.id}}
+      <br/>
+      {{character.name}}
+       </mat-grid-tile>
+</mat-grid-list>
+
+<mat-paginator [length]="totalSize"
+              [pageSize]="pageSize"
+              [showFirstLastButtons]="true"
+              (page)="handlePage($event)">
+</mat-paginator>
