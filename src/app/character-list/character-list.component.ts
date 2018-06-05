@@ -28,6 +28,7 @@ export class CharacterListComponent implements OnInit, AfterContentInit {
     sm: 2,
     xs: 1
   }
+  loadingMessage = true;
   alerts: any[] = [];
   constructor(private characterService: CharactersService, private observableMedia: ObservableMedia) { }
 
@@ -66,6 +67,7 @@ export class CharacterListComponent implements OnInit, AfterContentInit {
   //get the characters list from server
   getCharacterList() {
     this.characterService.getCharacters().subscribe(characterListResponse => {
+      this.loadingMessage = false;
       characterListResponse.results.forEach(char => {
         this.characters.push(new Character(char.name,
           char.url.slice(char.url.lastIndexOf('/pokemon/') + 9, char.url.lastIndexOf('/'))));
@@ -75,6 +77,7 @@ export class CharacterListComponent implements OnInit, AfterContentInit {
       this.viewCharacters = this.characters.slice(this.start, this.end); //show only the first 20 characters on the first page
     },
       error => {
+      this.loadingMessage = false;
         this.handleError(error);
       });
   }
