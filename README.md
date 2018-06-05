@@ -1,5 +1,7 @@
-# Pokemongallery
+# Pokemon Gallery UI
+This Project is hosted on AWS S3 : http://preetham-pokemongallery.s3-website-ap-southeast-2.amazonaws.com/
 
+# Pokemon Gallery
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
 
 ## Development server
