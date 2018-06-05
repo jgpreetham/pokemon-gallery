@@ -13,7 +13,7 @@ export class CharactersService {
 
   getCharacters(): Observable<CharacterResponse> {
     const response: Observable<CharacterResponse> = this.http.get<CharacterResponse>(this.pokemonUrl)
-      .timeoutWith(300000, Observable.throw(new Error('Time out while fetching data')));
+      .timeoutWith(60000, Observable.throw(new Error('Time out while fetching data')));
     return response;
   }
 }
