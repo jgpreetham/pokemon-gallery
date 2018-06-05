@@ -11,6 +11,11 @@
   </div>
 </div>
 
+<div class= "container" *ngIf="loadingMessage">
+Please wait while the images load.....
+</div>
+
+<div> 
 <mat-grid-list #tile rowHeight="100px">
   <mat-grid-tile
       *ngFor="let character of viewCharacters">
@@ -26,3 +31,4 @@
               [showFirstLastButtons]="true"
               (page)="handlePage($event)">
 </mat-paginator>
+  </div>
